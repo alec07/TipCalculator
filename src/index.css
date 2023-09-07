@@ -1,13 +1,160 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Edu SA Beginner', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: #F09A9D; /* Red */
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body {
+    background-color: #F5CF8E; /* Yellow */
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  body {
+    background-color: #B2D6FF; /* Blue */
+  }
+}
+
+:root {
+  --primary: hsl(172, 67%, 45%);
+  --Very-dark-cyan: hsl(183, 100%, 15%);
+  --Dark-grayish-cyan: hsl(186, 14%, 43%);
+  --Grayish-cyan: hsl(184, 14%, 56%);
+  --Light-grayish-cyan: hsl(185, 41%, 84%);
+  --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+}
+
+
+
+.container {
+  display: flex;
+  height: 60vh; /* Înălțimea containerului */
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.left {
+  flex: 0.8;
+  padding: 20px;
+  border-right: 1px solid #ccc; /* Adăugăm o linie verticală între părți */
+}
+
+
+#inputText {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+}
+#inputPeople {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+}
+
+#output {
+  font-size: 24px;
+}
+
+.tip-options {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  padding: 10px;
+  flex-wrap: wrap; /* Randuri multiple pentru optiuni */
+}
+
+.tip-options label {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.tip-options input[type="radio"] {
+  display: none;
+}
+
+.tip-options input[type="radio"]:checked + label {
+  background-color: hsl(183, 100%, 30%);
+}
+
+
+
+/* RIGHT SECTION  */
+.right {
+  flex: 1;
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 30px;
+}
+
+.section p {
+  margin: 0;
+}
+
+#total {
+  font-size: 48px;
+}
+
+button{
+  margin: 20px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 24px;
+  border: 0;
+  color: #000021;
+  background:hsl(185, 41%, 84%);
+  line-height: 1.15;
+  font-size: 16px;
+  :hover {
+      transition: all .1s ease;
+      box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  }
+  margin-top: 70%;
+
+
+
 }
