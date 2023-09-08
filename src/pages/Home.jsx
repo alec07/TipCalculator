@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const Home = () => {
     const [billAmount, setBillAmount] = useState("");
     const [tipPercentage, setTipPercentage] = useState(0);
-    const [numPeople, setNumPeople] = useState(1);
+    const [numPeople, setNumPeople] = useState("");
     const [customTipPercentage, setCustomTipPercentage] = useState("");
     const [error, setError] = useState("");
 
@@ -51,7 +51,7 @@ const Home = () => {
    const resetValues = () => {
     setBillAmount("");
     setTipPercentage(0);
-    setNumPeople(1);
+    setNumPeople("");
     setCustomTipPercentage("");
     setError("");
 };
@@ -131,7 +131,6 @@ const Home = () => {
                         value={customTipPercentage}
                         onChange={handleCustomTipChange}
                         />
-
                     </div>
                 </div>
                 <p>Number of people</p>
