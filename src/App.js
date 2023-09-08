@@ -13,7 +13,7 @@ import DeviceTooSmall from "./pages/DeviceTooSmall.jsx";
 
 const router = createBrowserRouter([
 {
-  path:"/",
+  path:"/TipCalculator/",
   element:<Home/>
 }
 ]);
