@@ -79,16 +79,20 @@ body {
   font-size: 16px;
 }
 
-#output {
-  font-size: 24px;
-}
 
 .tip-options {
   display: flex;
-  margin-bottom: 10px;
   justify-content: space-between;
-  padding: 10px;
-  flex-wrap: wrap; /* Randuri multiple pentru optiuni */
+  flex-direction: row;
+}
+
+.tip-row {
+  flex-basis: calc(33.33% - 10px);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 10px;
 }
 
 .tip-options label {
@@ -100,9 +104,19 @@ body {
   margin-top: 10px;
 }
 
+/* Stilizează input-ul "customTip" și label-ul "Personalizat" */
+#customTip {
+width:70px;
+}
+
 .tip-options input[type="radio"] {
   display: none;
 }
+.tip-options input[type="text"] {
+  padding: 10px;
+  border: none;
+}
+
 
 .tip-options input[type="radio"]:checked + label {
   background-color: hsl(183, 100%, 30%);
@@ -126,6 +140,7 @@ body {
   width: 100%;
   padding: 0 20px;
   margin-top: 30px;
+  margin-right: 50px;
 }
 
 .section p {
