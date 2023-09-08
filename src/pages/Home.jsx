@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 const Home = () => {
-    const [billAmount, setBillAmount] = useState(0);
+    const [billAmount, setBillAmount] = useState("");
     const [tipPercentage, setTipPercentage] = useState(0);
     const [numPeople, setNumPeople] = useState(1);
     const [customTipPercentage, setCustomTipPercentage] = useState("");
@@ -48,11 +48,13 @@ const Home = () => {
     };
 
    // Function to reset values
-    const resetValues = () => {
-        setBillAmount(0);
-        setTipPercentage(0);
-        setNumPeople(1);
-    };
+   const resetValues = () => {
+    setBillAmount("");
+    setTipPercentage(0);
+    setNumPeople(1);
+    setCustomTipPercentage("");
+    setError("");
+};
 
 
     return (
@@ -63,7 +65,7 @@ const Home = () => {
                     type="text"
                     id="inputText"
                     placeholder="0.00"
-                    min="1"
+                    value={billAmount}
                     onChange={handleInputChange}
                  />
                  {error && <p className="error">{error}</p>}
@@ -137,6 +139,7 @@ const Home = () => {
                     type="number"
                     id="inputPeople"
                     placeholder="1"
+                    value={numPeople}
                     min="1"
                     onChange={(e) => {
                         const inputValue = parseInt(e.target.value);
