@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TipCalculator/static/css/main.c37562bb.css",
-    "main.js": "/TipCalculator/static/js/main.229546d9.js",
-    "static/js/787.43b53372.chunk.js": "/TipCalculator/static/js/787.43b53372.chunk.js",
-    "index.html": "/TipCalculator/index.html",
-    "main.c37562bb.css.map": "/TipCalculator/static/css/main.c37562bb.css.map",
-    "main.229546d9.js.map": "/TipCalculator/static/js/main.229546d9.js.map",
-    "787.43b53372.chunk.js.map": "/TipCalculator/static/js/787.43b53372.chunk.js.map"
+    "main.css": "/tipcalculator/static/css/main.c37562bb.css",
+    "main.js": "/tipcalculator/static/js/main.3dbc3e18.js",
+    "static/js/787.43b53372.chunk.js": "/tipcalculator/static/js/787.43b53372.chunk.js",
+    "index.html": "/tipcalculator/index.html",
+    "main.c37562bb.css.map": "/tipcalculator/static/css/main.c37562bb.css.map",
+    "main.3dbc3e18.js.map": "/tipcalculator/static/js/main.3dbc3e18.js.map",
+    "787.43b53372.chunk.js.map": "/tipcalculator/static/js/787.43b53372.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c37562bb.css",
-    "static/js/main.229546d9.js"
+    "static/js/main.3dbc3e18.js"
   ]
 }
