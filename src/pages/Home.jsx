@@ -5,27 +5,49 @@ const Home = () => {
     const [billAmount, setBillAmount] = useState(0);
     const [tipPercentage, setTipPercentage] = useState(0);
     const [numPeople, setNumPeople] = useState(1);
-    const [customTipPercentage, setCustomTipPercentage] = useState(""); // valoarea personalizată a procentului de tips
+    const [customTipPercentage, setCustomTipPercentage] = useState("");
+    const [error, setError] = useState("");
 
-    // Funcție pentru calculul tipsului pe persoană
+
+
+    // Function to handle input changes and error display
+    const handleInputChange = (e) => {
+        const inputValue = parseFloat(e.target.value);
+        if (isNaN(inputValue) || inputValue < 1) {
+            setError("Give a number greater than or equal to 1");
+        } else {
+            setError("");
+        }
+        setBillAmount(inputValue);
+    };
+
+    // Function for calculating the tip per person
     const calculateTipPerPerson = () => {
-      const tipAmount = (billAmount * (tipPercentage / 100)) / numPeople;
-      return tipAmount.toFixed(2); // Arată rezultatul cu două zecimale
+        if (billAmount >= 1 && tipPercentage >= 1 && numPeople >= 1) {
+            const tipAmount = (billAmount * (tipPercentage / 100)) / numPeople;
+            return tipAmount.toFixed(2);
+        } else {
+            return "0.00";
+        }
     };
 
-    // Funcție pentru calculul totalului pe persoană
+    // Function for calculating the total per person
     const calculateTotalPerPerson = () => {
-      const totalAmount = (billAmount / numPeople) + parseFloat(calculateTipPerPerson());
-      return totalAmount.toFixed(2);
+        if (billAmount >= 1 && tipPercentage >= 1 && numPeople >= 1) {
+        const totalAmount = (billAmount / numPeople) + parseFloat(calculateTipPerPerson());
+        return totalAmount.toFixed(2);
+        } else {
+        return "0.00";
+        }
     };
 
-    // Funcție pentru a seta procentul de tips personalizat
+    // Function to set the percentage of custom tips
     const handleCustomTipChange = (e) => {
         setCustomTipPercentage(e.target.value);
         setTipPercentage(parseFloat(e.target.value));
     };
 
-    // Funcție pentru resetarea valorilor
+   // Function to reset values
     const resetValues = () => {
         setBillAmount(0);
         setTipPercentage(0);
@@ -37,78 +59,92 @@ const Home = () => {
         <div className="container">
             <div className="left">
                 <p>Bill</p>
-                <input  type="text" id="inputText" placeholder="0.00"  onChange={(e) => setBillAmount(parseFloat(e.target.value))}/>
+                <input
+                    type="text"
+                    id="inputText"
+                    placeholder="0.00"
+                    min="1"
+                    onChange={handleInputChange}
+                 />
+                 {error && <p className="error">{error}</p>}
                 <p>Select Tip %</p>
                 <div className="tip-options">
-  <div className="tip-row">
-    <input
-      type="radio"
-      id="tip5"
-      name="tip"
-      value="5"
-      onChange={() => setTipPercentage(5)}
-    />
-    <label htmlFor="tip5">5%</label>
-  </div>
-  <div className="tip-row">
-    <input
-      type="radio"
-      id="tip10"
-      name="tip"
-      value="10"
-      onChange={() => setTipPercentage(10)}
-    />
-    <label htmlFor="tip10">10%</label>
-  </div>
-  <div className="tip-row">
-    <input
-      type="radio"
-      id="tip15"
-      name="tip"
-      value="15"
-      onChange={() => setTipPercentage(15)}
-    />
-    <label htmlFor="tip15">15%</label>
-  </div>
-</div>
-<div className="tip-options">
-  <div className="tip-row">
-    <input
-      type="radio"
-      id="tip25"
-      name="tip"
-      value="25"
-      onChange={() => setTipPercentage(25)}
-    />
-    <label htmlFor="tip25">25%</label>
-  </div>
-  <div className="tip-row">
-    <input
-      type="radio"
-      id="tip50"
-      name="tip"
-      value="50"
-      onChange={() => setTipPercentage(50)}
-    />
-    <label htmlFor="tip50">50%</label>
-  </div>
-  <div className="tip-row">
-    <input
-      type="text"
-      id="customTip"
-      placeholder="Custom"
-      value={customTipPercentage}
-      onChange={handleCustomTipChange}
-    />
+                    <div className="tip-row">
+                        <input
+                        type="radio"
+                        id="tip5"
+                        name="tip"
+                        value="5"
+                        onChange={() => setTipPercentage(5)}
+                        />
+                        <label htmlFor="tip5">5%</label>
+                    </div>
+                    <div className="tip-row">
+                        <input
+                        type="radio"
+                        id="tip10"
+                        name="tip"
+                        value="10"
+                        onChange={() => setTipPercentage(10)}
+                        />
+                        <label htmlFor="tip10">10%</label>
+                    </div>
+                    <div className="tip-row">
+                        <input
+                        type="radio"
+                        id="tip15"
+                        name="tip"
+                        value="15"
+                        onChange={() => setTipPercentage(15)}
+                        />
+                        <label htmlFor="tip15">15%</label>
+                    </div>
+                    </div>
+                    <div className="tip-options">
+                    <div className="tip-row">
+                        <input
+                        type="radio"
+                        id="tip25"
+                        name="tip"
+                        value="25"
+                        onChange={() => setTipPercentage(25)}
+                        />
+                        <label htmlFor="tip25">25%</label>
+                    </div>
+                    <div className="tip-row">
+                        <input
+                        type="radio"
+                        id="tip50"
+                        name="tip"
+                        value="50"
+                        onChange={() => setTipPercentage(50)}
+                        />
+                        <label htmlFor="tip50">50%</label>
+                    </div>
+                    <div className="tip-row">
+                        <input
+                        type="text"
+                        id="customTip"
+                        placeholder="Custom"
+                        value={customTipPercentage}
+                        onChange={handleCustomTipChange}
+                        />
 
-  </div>
-</div>
+                    </div>
+                </div>
                 <p>Number of people</p>
                 <input
                     type="number"
                     id="inputPeople"
                     placeholder="1"
-                    onChange={(e) => setNumPeople(parseInt(e.target.value))}
+                    min="1"
+                    onChange={(e) => {
+                        const inputValue = parseInt(e.target.value);
+                        if (inputValue < 1) {
+                            e.target.value = 1;
+                        }
+                        setNumPeople(inputValue);
+                    }}
                 />
             </div>
             <div className="right">
@@ -125,8 +161,4 @@ const Home = () => {
         </div>
     )
 }
-
-
-
-
 export default Home

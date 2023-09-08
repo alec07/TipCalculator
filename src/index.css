@@ -122,6 +122,12 @@ width:70px;
   background-color: hsl(183, 100%, 30%);
 }
 
+.error{
+  font-size: 10px;
+  text-align: right;
+  color: red;
+}
+
 
 
 /* RIGHT SECTION  */
